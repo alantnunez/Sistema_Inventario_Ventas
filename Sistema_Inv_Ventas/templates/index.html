@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center align-items-center min-vh-75">
+    <div class="col-md-8 text-center">
+        <h1 class="display-4">Sistema de Inventario y Registro de Ventas</h1>
+        <p class="lead mt-3">Controla tus clientes, productos y ventas en un solo lugar</p>
+        <div class="mt-4">
+            <a href="{% url 'registrar' %}" class="btn btn-primary btn-lg me-2">Crear cuenta</a>
+            <a href="{% url 'iniciar_sesion' %}" class="btn btn-success btn-lg">Iniciar sesión</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

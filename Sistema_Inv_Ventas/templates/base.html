@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inventario</title>
+    <!-- Bootstrap para darle estilo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación arriba -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">Inventario y Ventas</a>
+            <div>
+                {% if user.is_authenticated %}
+                    <span class="text-white me-2">Hola, {{ user.username }}</span>
+                    <a href="{% url 'cerrar_sesion' %}" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+                {% else %}
+                    <a href="{% url 'iniciar_sesion' %}" class="btn btn-outline-light btn-sm me-1">Iniciar sesión</a>
+                    <a href="{% url 'registrar' %}" class="btn btn-primary btn-sm">Registrarse</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Aquí va el contenido de cada página -->
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Funciones de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

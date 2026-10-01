@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Editar Cliente</h2>
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" name="nombre" value="{{ cliente.nombre }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" name="apellido" value="{{ cliente.apellido }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="text" name="telefono" value="{{ cliente.telefono }}" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-warning">Actualizar</button>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
